@@ -1,0 +1,33 @@
+<h5>Ordenes de Compra:</h5>
+<form [formGroup]="this.ordenesService.form">
+
+  <input
+    class="input-field col s12"
+    placeholder="Numero de Consecutivo u Orden"
+    formControlName="orderNumber"
+    type="number"/>
+
+  <input
+    class="input-field col s12"
+    placeholder="Nombre del Cliente"
+    formControlName="customerName"
+    type="text"/>
+
+  <button
+    class="waves-effect waves-yellow btn col s4"
+    *ngFor="let product of products"
+    (click)="addProduct(product)">
+    {{ product }}  <i class="material-icons right">add</i>
+  </button>
+
+  <ul class="collection">
+    <li *ngFor="let product of productOrder">
+      <span class="col s11"> {{ product }} </span
+      ><a class="col s1" (click)="removeProduct(product)" style="cursor:pointer" >x</a>
+    </li>
+  </ul>
+
+  <button class="waves-effect waves-light btn col s12" (click)="onSubmit()">
+    Submit
+  </button>
+</form>

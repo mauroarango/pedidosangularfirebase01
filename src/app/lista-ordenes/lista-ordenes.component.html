@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th>Número de Orden</th>
+      <th>Cliente</th>
+      <th>Productos</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let order of productOrders">
+       <td>{{ order.payload.doc.data().orderNumber }}</td>
+       <td>{{ order.payload.doc.data().customerName }}</td>
+       <td><span
+            *ngFor="let product of order.payload.doc.data().productOrder">
+           {{ product }}
+          </span>
+       </td>
+    </tr>
+    </tbody>
+</table>
+
+<ul>
+  <li></li>
+</ul>
